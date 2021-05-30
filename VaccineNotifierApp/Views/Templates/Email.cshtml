@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model VaccineNotifierApp.Models.VaccineSlotsResponseModel;
+
+@{ 
+ 
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Vaccine Slot Available</title>
+    <style>
+        table, td, th {
+            border: 1px solid #2522228f;
+            border-radius: 4px;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+    <p>Hello, as requested by you on vaccinenotifier.co.in, some new vaccine slots are available for @Model.Centers[0].DistrictName and 45+ age group</p>
+    <p>We got this data at @DateTime.UtcNow Here's a list</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Center</th>
+                <th>Available Capacity</th>
+                <th>Available Dates</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model.Centers)
+                {
+                    var availableDates = string.Join(" , ",item.Sessions.Select(n => n.Date).ToList());
+                        <tr>
+                            <td>
+                                <h5>@item.Name</h5>
+                                <p>@item.Address, @item.Pincode</p>
+                            </td>
+                            <td>
+                                <p>@item.Sessions.Sum(item => item.AvailableCapacity)</p>
+                            </td>
+                            <td>
+                                <div style="display:flex">
+                                    <span>@availableDates</span>
+                                </div>
+                            </td>
+                        </tr>
+                }
+            }    
+        </tbody>
+    </table>
+    <p>
+        Book your slots now at the official CoWIN portal: https://selfregistration.cowin.gov.in/
+    </p>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.form-container {
+	flex-basis: 50%;
+	margin: 0 auto;
+	padding: 5px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	transition: transform .3s ease-out;
+}
+ .back-arrow{
+	flex-basis: 3%;
+    cursor: pointer;
+    background-color: #607D8B;
+    border-radius: 50%;
+	
+    padding: 5px;
+
+}

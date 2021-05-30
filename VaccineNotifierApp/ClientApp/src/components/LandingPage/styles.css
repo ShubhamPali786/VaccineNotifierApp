@@ -1,0 +1,32 @@
+
+.landingpage-container{
+    flex-basis: 45%;
+    background-color: #2A63D0;
+    color: white;
+    margin-right: 15px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-right: 1px solid #8e8989;
+    border-radius: 4px;
+    position: relative;
+}
+.landingpage-container h3{
+    border-bottom: 1px solid;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .landingpage-container{
+        border-radius: 0;
+        min-height: 300px;
+    }
+    .landingpage-container h5{
+        font-size: 25px;
+    }
+}

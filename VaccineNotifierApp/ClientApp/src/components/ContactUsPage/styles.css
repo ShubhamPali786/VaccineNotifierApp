@@ -1,0 +1,14 @@
+.linkedin-link{
+padding: 5px;
+cursor: pointer;
+}
+.github-link{
+padding: 5px;
+cursor: pointer;
+}
+.contact-page{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    padding-left: 10px;
+}

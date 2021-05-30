@@ -1,0 +1,39 @@
+.form-container {
+	flex-basis: 50%;
+	margin: 0 auto;
+	padding: 5px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.form-container .age-group {
+	background-color: white;
+	border-radius: 6px;
+	border: 1px solid #c3c3ca;
+	/* margin-left: 0px; */
+	padding-left: 15px;
+    padding-top: 5px;
+	margin-bottom: 1em;
+}
+.notifyme-cn{
+	padding-top: 5px;
+    margin-bottom: 1em;
+    padding: 5px;
+    border: 1px solid #c3c3ca;
+    border-radius: 4px;
+    padding-bottom: 4px;
+    padding-left: 35px;
+}
+.invalid{
+	border-color: red;
+    box-shadow: 0px 0px 0px 3px #ff00009e;
+}
+@media only screen and (max-width: 600px) {
+
+	.form-container{
+		
+	}
+	.slot-notifier-form button{
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
