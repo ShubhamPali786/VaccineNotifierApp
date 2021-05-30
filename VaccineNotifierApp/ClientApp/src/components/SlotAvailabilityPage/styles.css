@@ -5,51 +5,51 @@
 	border-top-right-radius: 5px;
 }
 .filter-controls .selected-district {
-    display: flex;
-    padding: 10px;
+	display: flex;
+	padding: 10px;
 	position: relative;
 }
 .filter-controls .back-arrow {
-    flex-basis: 3%;
-        cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 50%;
-        padding: 5px;
-        margin-right: 5px;
+	flex-basis: 3%;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 50%;
+	padding: 5px;
+	margin-right: 5px;
 }
 .filter-controls .selection {
-    flex-basis: 28%;
-    border-radius: 7px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 2px 0px rgb(13 110 253 / 25%);
-    margin-right: 10px;
-    color: white;
-    box-shadow: rgb(0 0 0 / 20%) 0px 3px 6px;
-    font-weight: bold;
-    padding: 5px;
+	flex-basis: 28%;
+	border-radius: 7px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 2px 0px rgb(13 110 253 / 25%);
+	margin-right: 10px;
+	color: white;
+	box-shadow: rgb(0 0 0 / 20%) 0px 3px 6px;
+	font-weight: bold;
+	padding: 5px;
 	cursor: pointer;
 }
 .filter-controls .age-filters {
-    display: flex;
-    padding: 10px;
+	display: flex;
+	padding: 10px;
 }
 .filter-controls .age-filters label {
-    font-size: 20px;
-    flex-basis: 5.5%;
-    color: white;
-    font-weight: bold;
+	font-size: 20px;
+	flex-basis: 7.5%;
+	color: white;
+	font-weight: bold;
 }
 .filter-controls .selected-age {
-    flex-basis: 5%;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: #ffffff;
-    box-shadow: rgb(0 0 0 / 20%) 2px 7px 5px 0px;
-    cursor: pointer;
-    text-align: center;
-    margin-left: 6px;
-    color: black;
+	flex-basis: 8%;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: #ffffff;
+	box-shadow: rgb(0 0 0 / 20%) 2px 7px 5px 0px;
+	cursor: pointer;
+	text-align: center;
+	margin-left: 6px;
+	color: black;
 }
 .filter-controls .selected-age:hover {
 	background-color: #1b5583;
@@ -187,103 +187,127 @@
 	border-radius: 5px;
 	font-weight: bold;
 }
-.noslots-msg-cn{
+.noslots-msg-cn {
 	padding: 5px;
-    padding-top: 155px;
-    padding-bottom: 164px;
+	padding-top: 155px;
+	padding-bottom: 164px;
 }
-.noslots-msg-cn p{
+.noslots-msg-cn p {
 	text-align: center;
 }
-.slotavailability-drop-down-state-arrow{
+.slotavailability-drop-down-state-arrow {
 	width: 0;
-    height: 0;
-    /* border-width: 9px; */
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 12px solid #ffffff;
-    position: absolute;
-    right: 106px;
-    top: -12px;
+	height: 0;
+	/* border-width: 9px; */
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 12px solid #ffffff;
+	position: absolute;
+	right: 106px;
+	top: -12px;
 }
-.slotavailability-drop-down-state{
+.slotavailability-drop-down-state {
+	transition-duration: 2s;
+	transition: all 3s ease-out;
 	display: none;
-    position: absolute;
-    background-color: white !important;
-    z-index: 2;
-    top: 65px;
+	position: absolute;
+	background-color: white !important;
+	z-index: 2;
+	top: 65px;
 	left: 120px;
-    border-radius: 5px;
-    box-shadow: rgb(0 0 0 / 20%) 0px 3px 6px;
-    padding-left: 5px;
-    padding-right: 5px;
+	border-radius: 5px;
+	box-shadow: rgb(0 0 0 / 20%) 0px 3px 6px;
+	padding-left: 5px;
+	padding-right: 5px;
 	cursor: pointer;
 }
-.slotavailability-drop-down-district-arrow{
+.slotavailability-drop-down-district-arrow {
 	width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 12px solid #ffffff;
-    position: absolute;
-    right: 106px;
-    top: -12px;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 12px solid #ffffff;
+	position: absolute;
+	right: 106px;
+	top: -12px;
 }
-.slotavailability-drop-down-district{
-    display: none;
-    position: absolute;
-    background-color: white !important;
-    z-index: 2;
-    top: 65px;
-    border-radius: 5px;
-    box-shadow: rgb(0 0 0 / 20%) 0px 3px 6px;
-    padding-left: 5px;
-    padding-right: 5px;
-    left: 31em;
-    cursor: pointer;
+.slotavailability-drop-down-district {
+	display: none;
+	position: absolute;
+	background-color: white !important;
+	z-index: 2;
+	top: 65px;
+	border-radius: 5px;
+	box-shadow: rgb(0 0 0 / 20%) 0px 3px 6px;
+	padding-left: 5px;
+	padding-right: 5px;
+	left: 31em;
+	cursor: pointer;
 }
-.slotavailability-drop-down-options{
+.slotavailability-drop-down-options {
 	overflow-y: scroll;
-    height: 20em;
+	height: 20em;
 }
-.slotavailability-drop-down-options p{
+.slotavailability-drop-down-options p {
 	border-bottom: 1px solid #f0f0f0;
-    margin: 0;
-    padding: 2px;
-    padding-bottom: 4px;
-}
-.slotavailability-districts-options p{
+	margin: 0;
+	padding: 2px;
 	padding-bottom: 4px;
-    padding-right: 90px;
 }
-.slotavailability-drop-down-options p:hover{
+.slotavailability-districts-options p {
+	padding-bottom: 4px;
+	padding-right: 90px;
+}
+.slotavailability-drop-down-options p:hover {
 	background-color: #f0f0f0;
 }
-.show{
+.show {
 	display: block !important;
+	transition: all 3 ease-out;
+}
+.slot-availability-page-dates {
+	display: flex;
 }
 
 @media only screen and (max-width: 600px) {
+	.filter-controls {
+		border-radius: 0%;
+	}
+	.filter-controls .selection {
+		padding: 10px;
+		flex-basis: 45%;
+	}
+	.filter-controls .age-filters label {
+		flex-basis: 20%;
+	}
+	.filter-controls .selected-age {
+		flex-basis: 20%;
+	}
+	.available-slots-table .tblBody {
+		height: 28em;
+	}
+	.available-date {
+		width: 95%;
+	}
+	.notification-msg > p {
+		padding-bottom: 20px;
+	}
+	.slotavailability-drop-down-state {
+		left: 5px;
+	}
+	.slotavailability-drop-down-district {
+		left: 155px;
+	}
+	.slot-availability-page-dates {
+		display: block;
+	}
+}
 
-.filter-controls{
-	border-radius: 0%;
-}	
-.filter-controls .selection{
-	padding:10px
-}
-.filter-controls .age-filters label{
-	flex-basis: 20%;
-}
-.filter-controls .selected-age{
-	flex-basis: 20%;
-}
-.available-slots-table .tblBody{
-	height: 28em;
-}
-.available-date{
-	width: 95%;
-}
-.notification-msg > p{
-	padding-bottom: 20px;
-}
+@media only screen and (min-width:1024px) and  (max-width: 1440px){
+	.slotavailability-drop-down-state{
+		left: 60px;
+	}
+	.slotavailability-drop-down-district{
+		left: 22em;
+	}
 }

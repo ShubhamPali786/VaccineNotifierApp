@@ -8,7 +8,7 @@ export const ContactUsPage:React.FC<{}>=(props)=>{
             <div className="linkedin-link" onClick={()=>window.open("https://www.linkedin.com/in/shubham-pali-006aa79a/")} >
                 <FontAwesomeIcon color={"white"} icon={faLinkedin}  size={"2x"}/>
             </div>
-            <div className="github-link" onClick={()=>window.open("https://www.linkedin.com/in/shubham-pali-006aa79a/")}>
+            <div className="github-link" onClick={()=>window.open("https://github.com/ShubhamPali786/VaccineNotifierApp")}>
                 <FontAwesomeIcon color={"white"}  icon={faGithub} size={"2x"} />
             </div>
         </div>;

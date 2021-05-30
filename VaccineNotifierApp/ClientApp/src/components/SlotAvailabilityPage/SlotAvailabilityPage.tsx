@@ -42,11 +42,12 @@ export const SlotAvailabilityPage: React.FC<SlotAvailabilityPageProps> = (props)
 							
 								<div
 									className="filter-controls selection"
-									onMouseEnter={() => setShowStates(true)}
+									onMouseEnter={() => setShowStates(true)} onMouseLeave={() => setShowStates(false)}
+									onTouchStart={()=>setShowStates(!showStates)}
 								>
 									{props.selectedState}
 								</div>
-								{props.stateList.length > 0 && (
+								{props.stateList.length > 0 && showStates && (
 									<div
 										className={
 											showStates
@@ -54,6 +55,7 @@ export const SlotAvailabilityPage: React.FC<SlotAvailabilityPageProps> = (props)
 												: 'slotavailability-drop-down-state'
 										}
 										onMouseLeave={() => setShowStates(false)}
+										onMouseEnter={()=>setShowStates(true)}
 									>
 										<div className="slotavailability-drop-down-state-arrow"></div>
 										<div className="slotavailability-drop-down-options slotavailability-states-options">
@@ -71,6 +73,8 @@ export const SlotAvailabilityPage: React.FC<SlotAvailabilityPageProps> = (props)
 								<div
 									className="filter-controls selection"
 									onMouseEnter={() => setShowDistrict(true)}
+									onMouseLeave={() => setShowDistrict(false)}
+									onTouchStart={()=>setShowDistrict(!showDistrict)}
 								>
 									{props.selectedDistrict}
 								</div>
@@ -81,7 +85,7 @@ export const SlotAvailabilityPage: React.FC<SlotAvailabilityPageProps> = (props)
 												? 'slotavailability-drop-down-district show'
 												: 'slotavailability-drop-down-district'
 										}
-										onMouseLeave={() => setShowDistrict(false)}
+										onMouseLeave={() => setShowDistrict(false)} onMouseEnter={() => setShowDistrict(true)}
 									>
 										<div className="slotavailability-drop-down-district-arrow"></div>
 										<div className="slotavailability-drop-down-options slotavailability-districts-options">
@@ -174,7 +178,7 @@ export const SlotAvailabilityPage: React.FC<SlotAvailabilityPageProps> = (props)
 
 											<div className="available-date-container">
 												Available Dates:
-												<div style={{ display: 'flex' }}>
+												<div className="slot-availability-page-dates">
 													{dates.map((item) => (
 														<div className="available-date">{item}</div>
 													))}

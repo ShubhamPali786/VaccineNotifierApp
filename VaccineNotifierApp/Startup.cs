@@ -88,7 +88,7 @@ namespace VaccineNotifierApp
                 }
             });
 
-            //RecurringJob.AddOrUpdate<ISlotNotifierService>(x => x.CheckSlotAvailability(), "*/5 * * * *");
+            RecurringJob.AddOrUpdate<ISlotNotifierService>(x => x.CheckSlotAvailability(), Configuration["JobScheduler"]);
 
         }
     }

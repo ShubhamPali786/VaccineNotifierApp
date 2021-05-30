@@ -25,7 +25,7 @@ namespace VaccineNotifierApp.Infrastructure
             portNumber = Convert.ToInt16(configuration["SmtpSettings:PortNumber"]);
             enableSSL = Convert.ToBoolean(configuration["SmtpSettings:EnableSSL"]);
             emailFromAddress = configuration["SmtpSettings:EmailFromAddress"];
-            password = configuration["SmtpSettings:Password"];
+            password = Encoding.UTF8.GetString(Convert.FromBase64String(configuration["SmtpSettings:Password"]));
         }
 
 
