@@ -1,11 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-
+﻿
 @model VaccineNotifierApp.Models.VaccineSlotsResponseModel;
 
-@{ 
- 
+@{
+    var currentDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Asia/Kolkata"));
+
 }
 
 <!DOCTYPE html>
@@ -17,13 +15,12 @@
         table, td, th {
             border: 1px solid #2522228f;
             border-radius: 4px;
-            text-align: center
         }
     </style>
 </head>
 <body>
-    <p>Hello, as requested by you on vaccinenotifier.co.in, some new vaccine slots are available for @Model.Centers[0].DistrictName and 45+ age group</p>
-    <p>We got this data at @DateTime.UtcNow Here's a list</p>
+    <p>Hello, as requested by you on vaccinenotify.co.in, some new vaccine slots are available for @Model.Centers[0].DistrictName and @Model.MinAgeLimit.</p>
+    <p>We got this data at @currentDate.ToString("dddd, dd MMMM yyyy HH:mm:ss") Here's a list</p>
     <table>
         <thead>
             <tr>
@@ -36,23 +33,23 @@
             @{
                 foreach (var item in Model.Centers)
                 {
-                    var availableDates = string.Join(" , ",item.Sessions.Select(n => n.Date).ToList());
-                        <tr>
-                            <td>
-                                <h5>@item.Name</h5>
-                                <p>@item.Address, @item.Pincode</p>
-                            </td>
-                            <td>
-                                <p>@item.Sessions.Sum(item => item.AvailableCapacity)</p>
-                            </td>
-                            <td>
-                                <div style="display:flex">
-                                    <span>@availableDates</span>
-                                </div>
-                            </td>
-                        </tr>
+                    var availableDates = string.Join(" , ", item.Sessions.Where(_ => _.AvailableCapacity > 0).Select(n => n.Date).ToList());
+                    <tr>
+                        <td>
+                            <h5>@item.Name</h5>
+                            <p>@item.Address, @item.Pincode</p>
+                        </td>
+                        <td style="text-align:center">
+                            <p>@item.Sessions.Sum(item => item.AvailableCapacity)</p>
+                        </td>
+                        <td>
+                            <div style="display:flex">
+                                <span>@availableDates</span>
+                            </div>
+                        </td>
+                    </tr>
                 }
-            }    
+            }
         </tbody>
     </table>
     <p>

@@ -16,7 +16,8 @@ namespace VaccineNotifierApp.Infrastructure
         private static int portNumber;
         private static bool enableSSL;
         private static string emailFromAddress; 
-        private static string password; 
+        private static string password;
+        private static string userName;
         private static string subject = "Alert: New vaccine slots available";
         public EmailService(IConfiguration configuration,ILogger<EmailService> logger)
         {
@@ -26,6 +27,7 @@ namespace VaccineNotifierApp.Infrastructure
             enableSSL = Convert.ToBoolean(configuration["SmtpSettings:EnableSSL"]);
             emailFromAddress = configuration["SmtpSettings:EmailFromAddress"];
             password = Encoding.UTF8.GetString(Convert.FromBase64String(configuration["SmtpSettings:Password"]));
+            userName = configuration["SmtpSettings:Username"];
         }
 
 
@@ -36,22 +38,23 @@ namespace VaccineNotifierApp.Infrastructure
                 using (MailMessage mail = new MailMessage())
                 {
                     mail.From = new MailAddress(emailFromAddress);
-                    mail.To.AddRange(emailAddresses);
+                    mail.Bcc.AddRange(emailAddresses);
                     mail.Subject = subject;
                     mail.Body = emailBody;
                     mail.IsBodyHtml = true;
 
                     using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
                     {
-                        smtp.Credentials = new NetworkCredential(emailFromAddress, password);
+                        smtp.Credentials = new NetworkCredential(userName, password);
                         smtp.EnableSsl = enableSSL;
                         smtp.Send(mail);
                     }
+                    logger.LogInformation($"Email Send Successfully to  users: {string.Join(",", emailAddresses)}");
                 }
             }
             catch (Exception ex)
             {
-                logger.LogError($"Unable to send email to users: {string.Join(",", emailAddresses)}", ex);
+                logger.LogError($"Unable to send email to users: {string.Join(",", emailAddresses)}, Exception : {ex.Message}", ex);
             }
         }
     }

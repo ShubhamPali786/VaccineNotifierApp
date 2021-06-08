@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using VaccineNotifierApp.Data;
 using VaccineNotifierApp.Infrastructure;
 using VaccineNotifierApp.Services;
@@ -36,7 +37,10 @@ namespace VaccineNotifierApp
             services.AddHangfireServer();
 
             services.AddAutoMapper(typeof(Startup));
-
+            //Initialize Logger
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(Configuration)
+                .CreateLogger();
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory

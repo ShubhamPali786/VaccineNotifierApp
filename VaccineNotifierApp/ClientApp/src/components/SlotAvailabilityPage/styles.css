@@ -146,11 +146,11 @@
 	border-bottom-right-radius: 5px;
 	position: relative;
 	color: white;
-	padding-top: 10px;
+	padding: 0;
 	flex-basis: 40%;
 }
 .available-date {
-	width: 35%;
+	width: 30%;
 	border-radius: 5px;
 	margin-right: 10px;
 	padding: 0;
@@ -162,13 +162,11 @@
 }
 .book-slot {
 	position: absolute;
-	bottom: 0;
-	padding: 5px;
-	left: 0;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.2);
-	border-bottom-right-radius: 5px;
-	text-align: center;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom-right-radius: 5px;
+    text-align: center;
 }
 /*Notification Message*/
 .notification-msg {
@@ -266,7 +264,7 @@
 	transition: all 3 ease-out;
 }
 .slot-availability-page-dates {
-	display: flex;
+	padding: 5px
 }
 
 @media only screen and (max-width: 600px) {
@@ -284,8 +282,12 @@
 		flex-basis: 20%;
 	}
 	.available-slots-table .tblBody {
-		height: 28em;
+		height: 31em;
 	}
+	.slot-availability-page-dates p{
+		margin-bottom: 0;
+	}
+	
 	.available-date {
 		width: 95%;
 	}
@@ -301,6 +303,11 @@
 	.slot-availability-page-dates {
 		display: block;
 	}
+	.row{
+		flex-wrap: nowrap;
+	}
+	
+
 }
 
 @media only screen and (min-width:1024px) and  (max-width: 1440px){

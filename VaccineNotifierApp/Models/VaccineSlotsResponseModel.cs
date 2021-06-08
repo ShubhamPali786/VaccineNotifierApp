@@ -9,6 +9,7 @@ namespace VaccineNotifierApp.Models
     public class VaccineSlotsResponseModel
     {
         public List<Center> Centers { get; set; }
+        public string MinAgeLimit { get; set; }
     }
 
     public class Center

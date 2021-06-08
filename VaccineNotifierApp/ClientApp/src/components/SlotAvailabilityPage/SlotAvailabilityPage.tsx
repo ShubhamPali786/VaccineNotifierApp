@@ -5,6 +5,7 @@ import { axiosInstance } from '../../AxiosBase';
 import { CenterAvailabilityModel } from '../../models/ResponseModels/CenterAvailabilityModel';
 import { DistrictModel } from '../../models/ResponseModels/DistrictModel';
 import { StateModel } from '../../models/ResponseModels/StateModel';
+
 import './styles.css';
 interface SlotAvailabilityPageProps {
 	centerAvailabilityModel: CenterAvailabilityModel;
@@ -144,6 +145,7 @@ export const SlotAvailabilityPage: React.FC<SlotAvailabilityPageProps> = (props)
 										(item) => item.min_age_limit >= 18 && item.min_age_limit <= 44
 									);
 									var dates = sessions.map((item) => item.date);
+									dates =dates.slice(0,3);
 									var vaccines = [
 										sessions.map((item) => item.vaccine).filter((x, i, a) => a.indexOf(x) == i),
 									];
@@ -177,11 +179,15 @@ export const SlotAvailabilityPage: React.FC<SlotAvailabilityPageProps> = (props)
 											</div>
 
 											<div className="available-date-container">
-												Available Dates:
-												<div className="slot-availability-page-dates">
+											<div className="slot-availability-page-dates">
+												<p>Available Dates: </p>
+												
+												 <div style={{display:"flex",flexWrap:"wrap"}}>
 													{dates.map((item) => (
 														<div className="available-date">{item}</div>
 													))}
+													</div>
+													
 												</div>
 												<div className="book-slot">Book on Cowin</div>
 											</div>
@@ -194,7 +200,7 @@ export const SlotAvailabilityPage: React.FC<SlotAvailabilityPageProps> = (props)
 				)}
 			{(!props.centerAvailabilityModel.centers.some((item) => item.sessions.length > 0) ||(!props.isAnySlotAvailable)) && (
 				<div className="noslots-msg-cn">
-					<p>There are no slots available for current selection.</p>
+					<p>You will be notified in email when more slots are available for your selection.</p>
 				</div>
 			)}
 			{props.notifyMe && (
